@@ -2,7 +2,7 @@
 
 This is an [openFrameworks](http://www.openframeworks.cc) addon for calibrating a projector to a Kinect, allowing for automated projection mapping aligned to the Kinect.
 
-This toolkit is also [implemented as a Processing library](https://github.com/genekogan/KinectProjectorToolkit). It is based on this method described by [Jan Hrdlička](http://blog.3dsense.org/programming/kinect-projector-calibration-human-mapping-2/). ofxKinectProjectorToolkit is similar to [ofxCamaraLucida](https://github.com/chparsons/ofxCamaraLucida), [ofxReprojection](https://github.com/luteberget/ofxReprojection), and [https://github.com/Kj1/ofxProjectorKinectCalibration](https://github.com/Kj1/ofxProjectorKinectCalibration).
+This toolkit is also [implemented as a Processing library](https://github.com/genekogan/KinectProjectorToolkit). It is based on the method described by [Jan Hrdlička](http://blog.3dsense.org/programming/kinect-projector-calibration-human-mapping-2/). ofxKinectProjectorToolkit is similar in aim to [ofxCamaraLucida](https://github.com/chparsons/ofxCamaraLucida), [ofxReprojection](https://github.com/luteberget/ofxReprojection), and [ofxProjectorKinectCalibration](https://github.com/Kj1/ofxProjectorKinectCalibration).
 
 
 ## Dependencies
@@ -23,7 +23,7 @@ Additionally, the included post-calibration examples require [ofxUI](https://git
 
 First, you must create the calibration. Set your display to dual-screen so the projector has its own display (right screen), and launch the CALIBRATION example.
 
-*Very important*: make note of the screen resolution of the projector's display (e.g. 1280x800) and copy those values to the defined variables PROJECTOR_RESOLUTION_X and PROJECTOR_RESOLUTION_Y.
+*Very important*: make note of the screen resolution of the projector's display (e.g. 1280x800) and copy those values to the defined variables `PROJECTOR_RESOLUTION_X` and `PROJECTOR_RESOLUTION_Y`.
 
 Follow the instructions in the calibration app to collect a series of point pairs. Move the chessboard display around using the mouse ('q' and 'r' keys resize it). Calibrate and save calibration file using 'c' and 's' keys. This will generate the calibration.xml file in the data folder of the calibration app. Copy this file somewhere.
 
