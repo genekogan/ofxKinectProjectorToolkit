@@ -6,6 +6,15 @@ using namespace cv;
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	fade = 200;
+	minArea = 1000;
+	maxArea = 70000;
+	threshold = 15;
+	persistence = 15;
+	maxDistance = 32;
+	numDilate = 2;
+	numErode = 2;
+
     blobColors[0] = ofColor(255, 0, 0);
     blobColors[1] = ofColor(0, 255, 0);
     blobColors[2] = ofColor(0, 0, 255);

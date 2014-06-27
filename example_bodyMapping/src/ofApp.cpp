@@ -2,6 +2,14 @@
 
 
 void ofApp::setup() {
+	nearThreshold = 230;
+	farThreshold = 10;
+	minArea = 1000;
+	maxArea = 70000;
+	threshold = 15;
+	persistence = 15;
+	maxDistance = 32;
+
 	ofSetVerticalSync(true);
 	
     blobColors[0] = ofColor(255, 0, 0);

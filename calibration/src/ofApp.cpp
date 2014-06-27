@@ -2,6 +2,10 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	chessboardSize = 300;
+	chessboardX = 5;
+    chessboardY = 4;
+
     kinect.setRegistration(true);
     kinect.init();
     kinect.open();
