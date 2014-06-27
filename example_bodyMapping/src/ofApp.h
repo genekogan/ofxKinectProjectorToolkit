@@ -40,11 +40,11 @@ public:
 	ofxCvGrayscaleImage         grayThreshNear;
 	ofxCvGrayscaleImage         grayThreshFar;
 	
-	float                       nearThreshold = 230;
-    float                       farThreshold = 10;
-    float                       minArea = 1000;
-    float                       maxArea = 70000;
-    float                       threshold = 15;
-    float                       persistence = 15;
-    float                       maxDistance = 32;
+	float                       nearThreshold;
+    float                       farThreshold;
+    float                       minArea;
+    float                       maxArea;
+    float                       threshold;
+    float                       persistence;
+    float                       maxDistance;
 };

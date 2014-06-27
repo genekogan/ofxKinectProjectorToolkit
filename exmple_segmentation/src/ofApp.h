@@ -52,13 +52,13 @@ public:
 
     ofPixels                pixels;
     
-    float                   fade = 200;
-    float                   minArea = 1000;
-    float                   maxArea = 70000;
-    float                   threshold = 15;
-    float                   persistence = 15;
-    float                   maxDistance = 32;
-    float                   numDilate = 2;
-    float                   numErode = 2;
+    float                   fade;
+    float                   minArea;
+    float                   maxArea;
+    float                   threshold;
+    float                   persistence;
+    float                   maxDistance;
+    float                   numDilate;
+    float                   numErode;
 
 };

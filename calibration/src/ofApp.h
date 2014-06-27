@@ -44,9 +44,9 @@ public:
     ofColor                     resultMessageColor;
     ofVec2f                     testPoint;
 
-    int                         chessboardSize = 300;
-    int                         chessboardX = 5;
-    int                         chessboardY = 4;
+    int                         chessboardSize;
+    int                         chessboardX;
+    int                         chessboardY;
     bool                        testing;
     bool                        saved;
 };
