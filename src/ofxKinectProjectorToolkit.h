@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxXmlSettings.h"
 #include "matrix.h"
 #include "matrix_qr.h"
 
@@ -20,5 +19,4 @@ private:
     dlib::matrix<double, 0, 11> A;
     dlib::matrix<double, 0, 1> y;
     dlib::matrix<double, 11, 1> x;
-    ofxXmlSettings xml;
 };

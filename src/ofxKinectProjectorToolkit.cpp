@@ -49,19 +49,25 @@ ofVec2f ofxKinectProjectorToolkit::getProjectedPoint(ofVec3f worldPoint) {
 }
 
 void ofxKinectProjectorToolkit::loadCalibration(string path){
-    xml.loadFile(path);
+    ofXml xml;
+    xml.load(path);    
+    xml.setTo("CALIBRATION");
     for (int i=0; i<11; i++) {
-        x(i, 0) = xml.getValue("CALIBRATION:COEFF"+ofToString(i), -1.0);
+        x(i, 0) = xml.getValue<float>("COEFF"+ofToString(i));
     }
 }
 
 void ofxKinectProjectorToolkit::saveCalibration(string path){
-    int tagNum = xml.addTag("CALIBRATION");
+    ofXml xml;
+    xml.addChild("CALIBRATION");
+    xml.setTo("CALIBRATION");
     for (int i=0; i<11; i++) {
-        x(i, 0) = xml.setValue("CALIBRATION:COEFF"+ofToString(i), x(i, 0), tagNum);
+        ofXml coeff;
+        coeff.addValue("COEFF"+ofToString(i), x(i, 0));
+        xml.addXml(coeff);
     }
-    xml.popTag();
-    xml.saveFile(path);
+    xml.setToParent();
+    xml.save(path);
 }
 
 
