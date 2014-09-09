@@ -29,7 +29,7 @@ public:
     ofxSecondWindow             secondWindow;
     
     ofxUICanvas                 *gui;
-    ofColor                     blobColors[11];
+    ofColor                     blobColors[12];
     
 	ofxCv::ContourFinder        contourFinder;
 	ofxKinectProjectorToolkit   kpt;

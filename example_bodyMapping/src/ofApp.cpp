@@ -17,12 +17,13 @@ void ofApp::setup() {
     blobColors[2] = ofColor(0, 0, 255);
     blobColors[3] = ofColor(255, 255, 0);
     blobColors[4] = ofColor(255, 0, 255);
-    blobColors[5] = ofColor(0, 127, 255);
-    blobColors[6] = ofColor(0, 255, 127);
+    blobColors[5] = ofColor(0, 255, 255);
+    blobColors[6] = ofColor(255, 127, 0);
     blobColors[7] = ofColor(127, 0, 255);
-    blobColors[8] = ofColor(255, 0, 127);
+    blobColors[8] = ofColor(0, 255, 127);
     blobColors[9] = ofColor(127, 255, 0);
-    blobColors[10]= ofColor(255, 127, 0);
+    blobColors[10]= ofColor(255, 0, 127);
+    blobColors[11]= ofColor(0, 127, 255);
     
     // set up kinect
     kinect.setRegistration(true);
@@ -109,7 +110,7 @@ void ofApp::draw() {
         // map contour using calibration and draw to main window
         ofBeginShape();
         ofFill();
-        ofSetColor(blobColors[label % 11]);
+        ofSetColor(blobColors[label % 12]);
         for (int j=0; j<points.size(); j++) {
             ofVec3f wp = kinect.getWorldCoordinateAt(points[j].x, points[j].y);
             ofVec2f pp = kpt.getProjectedPoint(wp);
