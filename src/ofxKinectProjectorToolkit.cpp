@@ -1,6 +1,10 @@
 #include "ofxKinectProjectorToolkit.h"
 
 
+ofxKinectProjectorToolkit::ofxKinectProjectorToolkit() {
+    calibrated = false;
+}
+
 void ofxKinectProjectorToolkit::calibrate(vector<ofVec3f> pairsKinect,
                                           vector<ofVec2f> pairsProjector) {
     int nPairs = pairsKinect.size();
@@ -38,6 +42,7 @@ void ofxKinectProjectorToolkit::calibrate(vector<ofVec3f> pairsKinect,
     
     dlib::qr_decomposition<dlib::matrix<double, 0, 11> > qrd(A);
     x = qrd.solve(y);
+    calibrated = true;
 }
 
 ofVec2f ofxKinectProjectorToolkit::getProjectedPoint(ofVec3f worldPoint) {
@@ -48,6 +53,15 @@ ofVec2f ofxKinectProjectorToolkit::getProjectedPoint(ofVec3f worldPoint) {
     return projectedPoint;
 }
 
+vector<double> ofxKinectProjectorToolkit::getCalibration()
+{
+    vector<double> coefficients;
+    for (int i=0; i<11; i++) {
+        coefficients.push_back(x(i, 0));
+    }
+    return coefficients;
+}
+
 void ofxKinectProjectorToolkit::loadCalibration(string path){
     ofXml xml;
     xml.load(path);    
@@ -55,6 +69,7 @@ void ofxKinectProjectorToolkit::loadCalibration(string path){
     for (int i=0; i<11; i++) {
         x(i, 0) = xml.getValue<float>("COEFF"+ofToString(i));
     }
+    calibrated = true;
 }
 
 void ofxKinectProjectorToolkit::saveCalibration(string path){

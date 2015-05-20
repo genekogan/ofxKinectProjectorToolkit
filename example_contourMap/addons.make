@@ -1,0 +1,6 @@
+ofxGui
+ofxKinect
+ofxOpenCv
+ofxCv
+ofxKinectProjectorToolkit
+ofxSecondWindow

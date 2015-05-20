@@ -32,7 +32,7 @@ public:
 
     ofxSecondWindow             secondWindow;
     ofFbo                       fboChessboard;
-    ofxCvColorImage*            rgbImage;
+    ofxCvColorImage             rgbImage;
     cv::Mat                     cvRgbImage;
 
     vector<ofVec2f>             currentProjectorPoints;

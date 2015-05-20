@@ -10,8 +10,8 @@ void ofApp::setup(){
     kinect.init();
     kinect.open();
     
-    rgbImage = new ofxCvColorImage();
-    rgbImage->allocate(kinect.width, kinect.height);
+    //rgbImage = new ofxCvColorImage();
+    rgbImage.allocate(kinect.width, kinect.height);
     
     fboChessboard.allocate(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y, GL_RGBA);
     secondWindow.setup("chessboard", ofGetScreenWidth(), 0, fboChessboard.getWidth(), fboChessboard.getHeight(), true);
@@ -82,7 +82,7 @@ void ofApp::addPointPair() {
 void ofApp::update(){
     kinect.update();
     if (kinect.isFrameNew()) {
-        rgbImage->setFromPixels(kinect.getPixels(), kinect.width, kinect.height);
+        rgbImage.setFromPixels(kinect.getPixels(), kinect.width, kinect.height);
         if (testing) {
             ofVec2f t = ofVec2f(min(kinect.getWidth()-1,testPoint.x), min(kinect.getHeight()-1,testPoint.y));
             ofVec3f worldPoint = kinect.getWorldCoordinateAt(t.x, t.y);
@@ -91,7 +91,7 @@ void ofApp::update(){
         }
         else {
             drawChessboard(ofGetMouseX(), ofGetMouseY(), chessboardSize);
-            cvRgbImage = ofxCv::toCv(rgbImage->getPixelsRef());
+            cvRgbImage = ofxCv::toCv(rgbImage.getPixelsRef());
             cv::Size patternSize = cv::Size(chessboardX-1, chessboardY-1);
             int chessFlags = cv::CALIB_CB_ADAPTIVE_THRESH + cv::CALIB_CB_FAST_CHECK;
             bool foundChessboard = findChessboardCorners(cvRgbImage, patternSize, cvPoints, chessFlags);
@@ -108,7 +108,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    rgbImage->draw(0, 0);
+    rgbImage.draw(0, 0);
     kinect.drawDepth(10, 490, 320, 240);
     
     ofSetColor(0);
