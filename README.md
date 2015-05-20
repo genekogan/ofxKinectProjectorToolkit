@@ -13,7 +13,7 @@ This library and the included calibration app can be coupled with either ofxKine
  * [ofxCv](https://github.com/kylemcdonald/ofxCv)
  * [ofxSecondWindow](https://github.com/genekogan/ofxSecondWindow)
 
-If using ofxOpenNi, make sure to include the openni config/lib folders in the data path as described in its README.
+If using ofxOpenNi, make sure to copy the openni config/lib folders into the data path as described in its README, or you will get compilation errors (they are not included in the example files found here).
 
 ## Instructions
 
