@@ -1,6 +1,6 @@
-ofxKinect
-ofxOpenCv
-ofxXmlSettings
 ofxCv
+ofxKinect
 ofxKinectProjectorToolkit
+ofxOpenCv
 ofxSecondWindow
+ofxXmlSettings

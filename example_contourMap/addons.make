@@ -1,6 +1,6 @@
+ofxCv
 ofxGui
 ofxKinect
-ofxOpenCv
-ofxCv
 ofxKinectProjectorToolkit
+ofxOpenCv
 ofxSecondWindow

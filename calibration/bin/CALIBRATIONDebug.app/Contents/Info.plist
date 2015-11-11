@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>14C109</string>
+	<string>14F27</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>CALIBRATIONDebug</string>
+	<string>calibrationDebug</string>
 	<key>CFBundleIconFile</key>
 	<string>icon-debug.icns</string>
 	<key>CFBundleIdentifier</key>

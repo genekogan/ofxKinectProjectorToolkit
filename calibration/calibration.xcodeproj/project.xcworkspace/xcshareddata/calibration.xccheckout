@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DBC53531-D548-4B9D-82F0-FC1E09D29087</string>
+	<string>34862247-7711-492D-A826-B8B92EA8FAB0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>calibration</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>37526DA425E5430474A14FBFA1BC4525160B5FC1</key>
-		<string>https://github.com/kylemcdonald/ofxCv.git</string>
+		<string>https://github.com/kylemcdonald/ofxCv</string>
 		<key>D9F52E6B50C836A90709491B3A1E16B7BCB9BE5F</key>
 		<string>https://github.com/genekogan/ofxKinectProjectorToolkit.git</string>
 		<key>FE87873B02C5E6719395DDAC8C0C0C585EF1FA8F</key>

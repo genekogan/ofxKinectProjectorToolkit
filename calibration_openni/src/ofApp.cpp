@@ -100,7 +100,7 @@ void ofApp::update(){
         }
         else {
             drawChessboard(ofGetMouseX(), ofGetMouseY(), chessboardSize);
-            cvRgbImage = ofxCv::toCv(rgbImage.getPixelsRef());
+            cvRgbImage = ofxCv::toCv(rgbImage.getPixels());
             cv::Size patternSize = cv::Size(chessboardX-1, chessboardY-1);
             int chessFlags = cv::CALIB_CB_ADAPTIVE_THRESH + cv::CALIB_CB_FAST_CHECK;
             foundChessboard = findChessboardCorners(cvRgbImage, patternSize, cvPoints, chessFlags);
