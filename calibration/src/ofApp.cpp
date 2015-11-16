@@ -14,7 +14,6 @@ void ofApp::setup(){
     rgbImage.allocate(kinect.width, kinect.height);
     
     fboChessboard.allocate(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y, GL_RGBA);
-    secondWindow.setup("chessboard", ofGetScreenWidth(), 0, fboChessboard.getWidth(), fboChessboard.getHeight(), true);
 }
 
 //--------------------------------------------------------------
@@ -23,7 +22,7 @@ void ofApp::drawChessboard(int x, int y, int chessboardSize) {
     float h = chessboardSize / chessboardY;
     currentProjectorPoints.clear();
     fboChessboard.begin();
-    ofBackground(255);
+    ofClear(255, 0);
     ofSetColor(0);
     ofTranslate(x, y);
     for (int j=0; j<chessboardY; j++) {
@@ -133,10 +132,11 @@ void ofApp::draw(){
         ofDrawBitmapString(ofToString(pairsKinect.size())+" point pairs collected.", 340, 630);
     }
     ofSetColor(255);
-    
-    secondWindow.begin();
+}
+
+void ofApp::drawSecondWindow(ofEventArgs &args){
+    ofSetColor(ofColor::white);
     fboChessboard.draw(0, 0);
-    secondWindow.end();
 }
 
 //--------------------------------------------------------------

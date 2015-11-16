@@ -5,7 +5,6 @@
 #include "ofxKinect.h"
 #include "ofxOpenCv.h"
 #include "ofxCv.h"
-#include "ofxSecondWindow.h"
 
 
 // this must match the display resolution of your projector
@@ -19,6 +18,7 @@ public:
     void setup();
     void update();
     void draw();
+    void drawSecondWindow(ofEventArgs& args);
     
     void keyPressed(int key);
     void mousePressed(int x, int y, int button);
@@ -30,7 +30,6 @@ public:
     ofxKinect                   kinect;
     ofxKinectProjectorToolkit   kpt;
 
-    ofxSecondWindow             secondWindow;
     ofFbo                       fboChessboard;
     ofxCvColorImage             rgbImage;
     cv::Mat                     cvRgbImage;
