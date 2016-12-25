@@ -28,8 +28,7 @@ void ofApp::setup() {
     grayThreshFar.allocate(kinect.width, kinect.height);
     
     kpt.loadCalibration("/Users/Gene/Desktop/calibration.xml");
-    
-    projector.setup("main", ofGetScreenWidth(), 0, PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y, true);
+
     
     // setup gui
     gui.setup("parameters");
@@ -47,7 +46,7 @@ void ofApp::update() {
     
     if(kinect.isFrameNew()) {
         // process kinect depth image
-        grayImage.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
+        grayImage.setFromPixels(kinect.getDepthPixels().getData(), kinect.width, kinect.height);
         grayThreshNear = grayImage;
         grayThreshFar = grayImage;
         grayThreshNear.threshold(nearThreshold, true);
@@ -68,25 +67,29 @@ void ofApp::update() {
 }
 
 void ofApp::draw() {
+
     // GUI
     ofBackground(0);
     ofSetColor(255);
+
     ofPushMatrix();
-    kinect.draw(0, 0);
-    ofTranslate(640, 0);
-    grayImage.draw(0, 0);
-    ofTranslate(-640, 480);
-    contourFinder.draw();
-    ofTranslate(640, 0);
+        kinect.draw(0, 0);
+        ofTranslate(640, 0);
+        grayImage.draw(0, 0);
+        ofTranslate(-640, 480);
+        contourFinder.draw();
+        ofTranslate(640, 0);
     ofPopMatrix();
     
     gui.draw();
     
+}
+
+void ofApp::drawSecondWindow(ofEventArgs &args){
+  
     // MAIN WINDOW
-    projector.begin();
-    
     ofBackground(0);
-    
+
     RectTracker& tracker = contourFinder.getTracker();
     
     for(int i = 0; i < contourFinder.size(); i++) {
@@ -103,12 +106,11 @@ void ofApp::draw() {
         for (int j=0; j<points.size(); j++) {
             ofVec3f worldPoint = kinect.getWorldCoordinateAt(points[j].x, points[j].y);
             ofVec2f projectedPoint = kpt.getProjectedPoint(worldPoint);
-            ofVertex(projector.getWidth() * projectedPoint.x, projector.getHeight() * projectedPoint.y);
+            ofVertex( PROJECTOR_RESOLUTION_X * projectedPoint.x, PROJECTOR_RESOLUTION_Y * projectedPoint.y );
         }
         ofEndShape();
     }
     
-    projector.end();
 }
 
 void ofApp::keyPressed(int key) {

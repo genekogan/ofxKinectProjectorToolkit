@@ -14,6 +14,9 @@ void ofApp::setup(){
     rgbImage.allocate(kinect.width, kinect.height);
     
     fboChessboard.allocate(PROJECTOR_RESOLUTION_X, PROJECTOR_RESOLUTION_Y, GL_RGBA);
+    
+    // reset angle, b
+    angle = 0;
 }
 
 //--------------------------------------------------------------
@@ -81,7 +84,7 @@ void ofApp::addPointPair() {
 void ofApp::update(){
     kinect.update();
     if (kinect.isFrameNew()) {
-        rgbImage.setFromPixels(kinect.getPixels(), kinect.width, kinect.height);
+        rgbImage.setFromPixels(kinect.getPixels().getData(), kinect.width, kinect.height);
         if (testing) {
             ofVec2f t = ofVec2f(min(kinect.getWidth()-1,testPoint.x), min(kinect.getHeight()-1,testPoint.y));
             ofVec3f worldPoint = kinect.getWorldCoordinateAt(t.x, t.y);
@@ -131,6 +134,7 @@ void ofApp::draw(){
         ofSetColor(0);
         ofDrawBitmapString(ofToString(pairsKinect.size())+" point pairs collected.", 340, 630);
     }
+    ofDrawBitmapString("kinect angle :" + ofToString(angle), 340, 650 );
     ofSetColor(255);
 }
 
@@ -141,22 +145,50 @@ void ofApp::drawSecondWindow(ofEventArgs &args){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key==' '){
+    
+    switch (key) {
+    case ' ':
         addPointPair();
-    } else if (key=='q') {
+    break;
+    case 'q':
         chessboardSize -= 20;
-    } else if (key=='w') {
+        break;
+    case 'w':
         chessboardSize += 20;
-    } else if (key=='c') {
+        break;
+    case 'c':
+
         kpt.calibrate(pairsKinect, pairsProjector);
         testing = true;
-    } else if (key=='s') {
+        break;
+    case 's':
         kpt.saveCalibration("calibration.xml");
         saved = true;
-    } else if (key=='l') {
+        break;
+    case 'l':
         kpt.loadCalibration("calibration.xml");
         testing = true;
+        break;
+        
+    case OF_KEY_UP:
+        angle++;
+        if(angle>30) angle=30;
+        kinect.setCameraTiltAngle(angle);
+        break;
+        
+    case OF_KEY_DOWN:
+        angle--;
+        if(angle<-30) angle=-30;
+        kinect.setCameraTiltAngle(angle);
+        break;
+        
+    case '0':
+        angle = 0;
+        kinect.setCameraTiltAngle(angle);
+    break;
+	
     }
+    
 }
 
 //--------------------------------------------------------------

@@ -2,5 +2,4 @@ ofxCv
 ofxKinect
 ofxKinectProjectorToolkit
 ofxOpenCv
-ofxSecondWindow
 ofxXmlSettings

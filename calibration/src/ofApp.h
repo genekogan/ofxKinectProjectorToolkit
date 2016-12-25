@@ -48,6 +48,9 @@ public:
     int                         chessboardY;
     bool                        testing;
     bool                        saved;
+    
+	int angle;
+
 };
 
 
