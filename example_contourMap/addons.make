@@ -3,4 +3,3 @@ ofxGui
 ofxKinect
 ofxKinectProjectorToolkit
 ofxOpenCv
-ofxSecondWindow

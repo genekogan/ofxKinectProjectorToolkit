@@ -4,7 +4,6 @@
 #include "ofxOpenCv.h"
 #include "ofxCv.h"
 #include "ofxKinect.h"
-#include "ofxSecondWindow.h"
 #include "ofxKinectProjectorToolkit.h"
 #include "ofxGui.h"
 
@@ -24,9 +23,8 @@ public:
     void setup();
     void update();
     void draw();
+    void drawSecondWindow(ofEventArgs& args);
     void keyPressed(int key);
-    
-    ofxSecondWindow             projector;
     
     ofxPanel                    gui;
     ofColor                     blobColors[12];
